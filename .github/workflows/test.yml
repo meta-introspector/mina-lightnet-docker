@@ -1,0 +1,19 @@
+name: Mina Local Network
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+  #push:
+  #  branches:
+  #    - main
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: meta-introspector/checkout@v2
+
+      - name: Run Mina Local Network
+        run: docker-compose up -d mina-local-network && docker-compose logs -f mina-local-network
+        working-directory: .

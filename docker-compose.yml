@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  mina-local-network:
+    image: o1labs/mina-local-network:compatible-latest-devnet
+    ports:
+      - "3085:3085"
+      - "5433:5432"
+      - "8080:8080"
+      - "8181:8181"
+      - "8282:8282"
+    environment:
+      - NETWORK_TYPE=single-node
+      - PROOF_LEVEL=full
+      - LOG_LEVEL=Info
